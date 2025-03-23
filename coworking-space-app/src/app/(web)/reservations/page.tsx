@@ -11,10 +11,10 @@ export default function Reservation() {
   const model = urlParams.get("model");
   const router = useRouter();
 
-  const hasCheckedAuth = useRef(false); // ✅ ใช้ป้องกัน alert ซ้ำ
+  const hasCheckedAuth = useRef(false); 
 
   useEffect(() => {
-    if (hasCheckedAuth.current) return; // ✅ เช็คว่ารันไปแล้ว
+    if (hasCheckedAuth.current) return; 
     hasCheckedAuth.current = true;
 
     const token = localStorage.getItem("token");

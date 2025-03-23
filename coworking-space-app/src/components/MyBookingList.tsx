@@ -2,6 +2,10 @@
 
 import { useEffect, useState } from "react";
 import getReservations from "@/libs/getReservations";
+import dayjs from "dayjs";
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
 
 type Reservation = {
   _id: string;
@@ -74,6 +78,10 @@ export default function BookingList() {
     }
   };
 
+  const handleEdit = (id: string) => {
+    
+
+  };
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-6 text-sky-800">My Bookings</h2>
@@ -102,8 +110,8 @@ export default function BookingList() {
                     : item.coworkingspace.name}
                 </div>
                 <p className="text-sm text-gray-700">Room: {item.room_number}</p>
-                <p className="text-sm text-gray-700">Start: {item.startTime}</p>
-                <p className="text-sm text-gray-700">End: {item.endTime}</p>
+                <p className="text-sm text-gray-700">Start: {dayjs.utc(item.startTime).format("MMMM D, YYYY h:mm A")}</p>
+                <p className="text-sm text-gray-700">End: {dayjs.utc(item.endTime).format("MMMM D, YYYY h:mm A")}</p>
                 {item.nameLastname && <p className="text-sm text-gray-700">Name: {item.nameLastname}</p>}
                 {item.tel && <p className="text-sm text-gray-700">Phone: {item.tel}</p>}
 
@@ -113,7 +121,7 @@ export default function BookingList() {
                     {/* ปุ่ม Edit (future feature) */}
                     <button
                       className="px-4 py-1 rounded bg-yellow-500 text-white hover:bg-yellow-600 text-sm"
-                      onClick={() => alert("Coming soon!")}
+                      onClick={() => handleEdit(item._id)}
                     >
                       Edit
                     </button>

@@ -124,8 +124,8 @@ export default function DateReserve() {
       const reservation = {
         user: userId,
         coworkingspace: selectedBranch._id,
-        startTime: dayjs(startTime).toISOString(),
-        endTime: dayjs(endTime).toISOString(),
+        startTime: dayjs(startTime).locale("th").toISOString(),
+        endTime: dayjs(endTime).locale("th").toISOString(),
         room_number: roomNumber,
       };
   
@@ -224,7 +224,7 @@ export default function DateReserve() {
         <DateTimePicker
           label="Start Date & Time"
           value={startTime}
-          onChange={(newDate) => setStartTime(newDate)}
+          onChange={(newDate) => (newDate)}
         />
         <DateTimePicker
           label="End Date & Time"

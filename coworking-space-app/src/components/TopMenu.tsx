@@ -8,9 +8,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function TopMenu() {
   const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null); // ใช้ null ตอนโหลด
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null); 
 
-  // ✅ ตรวจ token หลังโหลดหน้าเสร็จ
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
@@ -19,7 +19,7 @@ export default function TopMenu() {
   }, []);
 
   const handleSignOut = () => {
-    if (!isLoggedIn) return; // ✅ ป้องกันกรณีไม่ได้ login
+    if (!isLoggedIn) return; 
 
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
