@@ -121,13 +121,22 @@ export default function DateReserve() {
         return;
       }
   
+      // const reservation = {
+      //   user: userId,
+      //   coworkingspace: selectedBranch._id,
+      //   startTime: dayjs(startTime).locale("th").toISOString(),
+      //   endTime: dayjs(endTime).locale("th").toISOString(),
+      //   room_number: roomNumber,
+      // };
+
       const reservation = {
         user: userId,
         coworkingspace: selectedBranch._id,
-        startTime: dayjs(startTime).locale("th").toISOString(),
-        endTime: dayjs(endTime).locale("th").toISOString(),
+        startTime: dayjs(startTime).toISOString(), 
+        endTime: dayjs(endTime).toISOString(),
         room_number: roomNumber,
       };
+      
   
       try {
         const res = await fetch(
@@ -224,7 +233,7 @@ export default function DateReserve() {
         <DateTimePicker
           label="Start Date & Time"
           value={startTime}
-          onChange={(newDate) => (newDate)}
+          onChange={(newDate) => setStartTime(newDate)}
         />
         <DateTimePicker
           label="End Date & Time"
