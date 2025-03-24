@@ -394,7 +394,7 @@ export default function BookingList() {
                           setNewEnd(dayjs(item.endTime));
                         }}
                       >
-                        Edit
+                        Edit 
                       </button>
                       <button
                         className="px-4 py-1 rounded bg-red-500 text-white hover:bg-red-600 text-sm"
